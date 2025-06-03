@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyChat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}" />
+</head>
+<body>
+<div class="chat-container">
+
+  <header class="chat-header">
+    <h1>My ChatBot</h1>
+    <p>Welcome, {{ username }} 👋</p>
+  </header>
+
+  <main class="chat-area" id="chat-area">
+    {% if response %}
+      <div class="chat-message bot">
+        <div class="message-content">
+          <strong>🤖:</strong> {{ response | safe }}
+          
+        </div>
+      </div>
+    {% endif %}
+  </main>
+
+  <form method="POST" class="chat-form" autocomplete="off">
+    <input name="message" placeholder="Type your message..." required />
+    <button type="submit">Send</button>
+  </form>
+
+</div>
+
+<a href="/login" class="logout-botton">Logout</a>
+<script>function copyCode() {
+  const code = document.getElementById("codeBox").innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    alert("Code copied!");
+  });
+}</script>
+
+</body>
+</html>
