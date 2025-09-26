@@ -3,7 +3,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import style from './page.module.css'
 import Image from "next/image";
 
-export default function login() {
+export default function Login() {
   const { data: session } = useSession();
 
   if (session) {
